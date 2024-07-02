@@ -3,15 +3,20 @@ import { FaLink, FaShareAlt, FaEdit, FaChartLine } from "react-icons/fa";
 const About = () => {
   return (
     <div className="lg:px-14 sm:px-8 px-4 min-h-[calc(100vh-64px)] pt-10">
-      <div className="bg-white w-full rounded-lg shadow-lg ">
-        <h1 className="sm:text-4xl text-3xl font-bold italic text-center mb-6">
+      <div className="bg-white w-full rounded-lg shadow-lg  pt-4 pb-6 ">
+        <h1 className="sm:text-4xl text-3xl font-bold italic  mb-3">
           About Bitly QuickLink
         </h1>
-        <p className="text-gray-700 text-lg text-center mb-8">
+        <p className="text-gray-700 text-sm  mb-8 lg:w-1/2 sm:w-[80%] w-full ">
           QuickLink simplifies URL shortening for efficient sharing. Easily
-          generate, manage, and track your shortened links.
+          generate, manage, and track your shortened links.QuickLink simplifies
+          URL shortening for efficient sharing. Easily generate, manage, and
+          track your shortened links.QuickLink simplifies URL shortening for
+          efficient sharing. Easily generate, manage, and track your shortened
+          links.QuickLink simplifies URL shortening for efficient sharing.
+          Easily generate, manage, and track your shortened links.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="space-y-5">
           <div className="flex items-center">
             <FaLink className="text-blue-500 text-3xl mr-4" />
             <div>

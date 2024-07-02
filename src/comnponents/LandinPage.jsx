@@ -36,7 +36,7 @@ const LandinPage = () => {
         </div>
       </div>
 
-      <div className="pt-12">
+      <div className="sm:pt-12 pt-7">
         <p className="text-slate-900 font-bold lg:w-[60%]  md:w-[70%] sm:w-[80%] mx-auto text-3xl text-center">
           Trusted by individuals and teams at the word best companies{" "}
         </p>
