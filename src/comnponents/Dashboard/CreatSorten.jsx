@@ -34,13 +34,12 @@ const CreatSorten = ({ setOpen, refetch }) => {
         },
       });
       await refetch();
-
-      toast.success("ShortUrl Created");
+      toast.success("ShortUrl Create Successful");
       reset();
       setOpen(false);
     } catch (err) {
       console.log(err);
-      toast.error("ShortUrl Created Failed");
+      toast.error("Create ShortUrl Failed");
     } finally {
       setLoading(false);
     }
@@ -52,16 +51,17 @@ const CreatSorten = ({ setOpen, refetch }) => {
         onSubmit={handleSubmit(createShortUrlHandler)}
         className="sm:w-[450px] w-[300px] relative  shadow-custom py-10 sm:px-8 px-4 rounded-lg"
       >
-        <h1 className="font-montserrat text-center font-bold text-2xl text-white ">
+        <h1 className="font-montserrat text-center font-serif font-bold text-2xl text-white ">
           Create New ShortenUrl
         </h1>
         <hr className="mt-2 mb-5 text-slate-950" />
 
         <div>
           <TextField
-            label="Enter Shorten Url"
+            label="Enter URL"
             required
             id="originalUrl"
+            placeholder="Enter Url"
             type="text"
             message="*ShortenUrl is required"
             register={register}

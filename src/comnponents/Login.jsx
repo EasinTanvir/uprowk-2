@@ -8,15 +8,12 @@ import { useStoreContext } from "../contextApi/ContextApi";
 
 const Login = () => {
   const navigate = useNavigate();
-
   const [loader, setLoader] = useState(false);
-
   const { setToken } = useStoreContext();
 
   const {
     register,
     handleSubmit,
-    setError,
     reset,
     formState: { errors },
   } = useForm({
@@ -41,15 +38,7 @@ const Login = () => {
       navigate("/");
     } catch (err) {
       console.log(err);
-
-      //set error progamitically by using react hook form. Make sure add username key for the username error and password key for the invalid password error
-      if (err?.response?.data?.username) {
-        setError("username", { message: err?.response?.data?.username });
-      } else if (err?.response?.data?.password) {
-        setError("password", { message: err?.response?.data?.password });
-      } else {
-        toast.error("Invalid Credentials");
-      }
+      toast.error("Invalid Credentials");
     } finally {
       setLoader(false);
     }
@@ -61,7 +50,7 @@ const Login = () => {
         onSubmit={handleSubmit(loginHandler)}
         className="sm:w-[450px] w-[360px]  shadow-custom py-8 sm:px-8 px-4 rounded-md"
       >
-        <h1 className="text-center font-bold lg:text-3xl text-2xl text-btnColor ">
+        <h1 className="text-center font-serif font-bold lg:text-3xl text-2xl text-btnColor ">
           Login Here
         </h1>
         <hr className="mt-2 mb-5 text-black" />

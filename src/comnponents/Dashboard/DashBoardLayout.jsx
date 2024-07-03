@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Graph from "./Graph";
 import SortenUrlLists from "./SortenUrlLists";
 import { useQuery } from "react-query";
@@ -13,6 +13,7 @@ const DashBoardLayout = () => {
   const { token } = useStoreContext();
   const [creatSortenModal, setCreateSortenModal] = useState(false);
 
+  // fetch data using React Query for efficient caching and preventing extra requests
   const { isLoading, data, refetch } = useQuery(
     "fetch-shorten",
     async () => {
@@ -62,109 +63,6 @@ const DashBoardLayout = () => {
       staleTime: 5000,
     }
   );
-
-  const datas = [
-    {
-      id: 1,
-      clickDate: "2024-07-03",
-      count: 4,
-    },
-    {
-      id: 2,
-      clickDate: "2024-07-04",
-      count: 8,
-    },
-    {
-      id: 3,
-      clickDate: "2024-07-05",
-      count: 6,
-    },
-    {
-      id: 4,
-      clickDate: "2024-07-06",
-      count: 2,
-    },
-    {
-      id: 5,
-      clickDate: "2024-07-07",
-      count: 7,
-    },
-    {
-      id: 6,
-      clickDate: "2024-07-08",
-      count: 14,
-    },
-    {
-      id: 7,
-      clickDate: "2024-07-09",
-      count: 16,
-    },
-    {
-      id: 8,
-      clickDate: "2024-07-10",
-      count: 12,
-    },
-    {
-      id: 9,
-      clickDate: "2024-07-11",
-      count: 2,
-    },
-    {
-      id: 10,
-      clickDate: "2024-07-12",
-      count: 20,
-    },
-    {
-      id: 1,
-      clickDate: "2024-07-03",
-      count: 4,
-    },
-    {
-      id: 2,
-      clickDate: "2024-07-04",
-      count: 8,
-    },
-    {
-      id: 3,
-      clickDate: "2024-07-05",
-      count: 6,
-    },
-    {
-      id: 4,
-      clickDate: "2024-07-06",
-      count: 2,
-    },
-    {
-      id: 5,
-      clickDate: "2024-07-07",
-      count: 7,
-    },
-    {
-      id: 6,
-      clickDate: "2024-07-08",
-      count: 14,
-    },
-    {
-      id: 7,
-      clickDate: "2024-07-09",
-      count: 16,
-    },
-    {
-      id: 8,
-      clickDate: "2024-07-10",
-      count: 12,
-    },
-    {
-      id: 9,
-      clickDate: "2024-07-11",
-      count: 2,
-    },
-    {
-      id: 10,
-      clickDate: "2024-07-12",
-      count: 20,
-    },
-  ];
 
   return (
     <div className="lg:px-14 sm:px-8 px-4 min-h-[calc(100vh-64px)]">

@@ -7,7 +7,7 @@ import Graph from "./Graph";
 import api from "../../api/api";
 import { useStoreContext } from "../../contextApi/ContextApi";
 import { useNavigate } from "react-router-dom";
-import { FallingLines, Hourglass } from "react-loader-spinner";
+import { Hourglass } from "react-loader-spinner";
 const SortenItem = ({ originalUrl, shortUrl, id }) => {
   const navigate = useNavigate();
   const { token } = useStoreContext();
@@ -56,13 +56,13 @@ const SortenItem = ({ originalUrl, shortUrl, id }) => {
   return (
     <div
       className={`bg-white shadow-md border border-slate-600 px-6 sm:py-4 py-3 rounded-md  transition-all duration-100 ${
-        analyticToggle ? "h-[450px]" : "h-32"
+        analyticToggle ? "sm:h-[450px] h-[500px]" : "h-40"
       } `}
     >
-      <div className="h-24 flex sm:flex-row flex-col  sm:items-center  sm:justify-between w-full sm:gap-0 gap-1 ">
-        <div className="flex-1 ">
-          <h3 className=" text-slate-800 font-[500] text-lg">{originalUrl}</h3>
-          <span className=" text-slate-700 font-[400] "> {shortUrl}</span>
+      <div className="sm:h-24 h-32 flex sm:flex-row flex-col  sm:items-center  sm:justify-between w-full sm:gap-0 gap-5 ">
+        <div className="flex-1 overflow-x-auto overflow-y-hidden ">
+          <h3 className=" text-slate-900 font-[600] text-lg">{originalUrl}</h3>
+          <span className=" text-slate-700 font-[500] "> {shortUrl}</span>
         </div>
         <div className="flex  flex-1 h-full   sm:justify-end items-center gap-4">
           <CopyToClipboard
@@ -90,7 +90,7 @@ const SortenItem = ({ originalUrl, shortUrl, id }) => {
       <div
         className={`${
           analyticToggle ? "flex" : "hidden"
-        }  max-h-[calc(450px-140px)] sm:mt-0 mt-3 min-h-[calc(450px-140px)]  border-t-2 w-[100%] overflow-hidden`}
+        }  max-h-[calc(450px-140px)] sm:mt-0 mt-5 min-h-[calc(450px-140px)]  border-t-2 w-[100%] overflow-hidden`}
       >
         {loader ? (
           <div className="min-h-[calc(450px-140px)] flex justify-center items-center w-full">
