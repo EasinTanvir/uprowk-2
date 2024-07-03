@@ -30,7 +30,7 @@ const Login = () => {
   const loginHandler = async (data) => {
     setLoader(true);
     try {
-      const { data: response } = await api.post("/api/auth/login", data);
+      const { data: response } = await api.post("/api/auth/public/login", data);
       console.log(response);
 
       //store the token to the localstorage from the responbse
@@ -49,7 +49,7 @@ const Login = () => {
       } else if (err?.response?.data?.password) {
         setError("password", { message: err?.response?.data?.password });
       } else {
-        toast.error(err?.response?.data?.message);
+        toast.error("Invalid Credentials");
       }
     } finally {
       setLoader(false);
@@ -86,15 +86,13 @@ const Login = () => {
             message="*Password is required"
             placeholder="type your password"
             register={register}
-            min={6}
             errors={errors}
           />
         </div>
         <button
           disabled={loader}
-          onClickhandler={() => {}}
           className="bg-customRed font-semibold text-white  bg-custom-gradient w-full py-2 hover:text-slate-400 transition-colors duration-100 rounded-sm my-3"
-          type="text"
+          type="submit"
         >
           {loader ? "Loading..." : "Login"}
         </button>

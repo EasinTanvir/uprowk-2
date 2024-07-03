@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import TextField from "./TextField";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import api from "../api/api";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -25,7 +27,10 @@ const Register = () => {
   const registerHandler = async (data) => {
     setLoader(true);
     try {
-      const { data: response } = await api.post("/api/auth/register", data);
+      const { data: response } = await api.post(
+        "/api/auth/public/register",
+        data
+      );
       console.log(response);
 
       toast.success(response?.message);
@@ -93,9 +98,8 @@ const Register = () => {
           />
         </div>
         <button
-          onClickhandler={() => {}}
           className="bg-customRed font-semibold text-white  bg-custom-gradient w-full py-2 hover:text-slate-400 transition-colors duration-100 rounded-sm my-3"
-          type="text"
+          type="submit"
         >
           {loader ? "Loading..." : "Register"}
         </button>

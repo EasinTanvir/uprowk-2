@@ -13,6 +13,7 @@ import Analytics from "./comnponents/Dashboard/Analytics";
 import LandinPage from "./comnponents/LandinPage";
 import { Toaster } from "react-hot-toast";
 import Footer from "./comnponents/Footer";
+import PrivateRoutes from "./comnponents/PrivateRoute";
 
 const App = () => {
   return (
@@ -21,14 +22,13 @@ const App = () => {
       <Toaster position="bottom-center" reverseOrder={false} />
       <Routes>
         <Route path="/" element={<LandinPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<PrivateRoutes publicPage={false} />}>
+          <Route path="/dashboard" element={<DashBoardLayout />} />
+        </Route>
         <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<DashBoardLayout />}>
-          <Route path="" element={<CreatSorten />} />
-          <Route path="shorten-list" element={<SortenUrlLists />} />
-          <Route path="analytics" element={<Analytics />} />
+        <Route path="/" element={<PrivateRoutes publicPage={true} />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Route>
       </Routes>
       <Footer />
