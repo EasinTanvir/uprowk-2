@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 
 let desc =
-  "Generate short, memorable links with ease using QuickLink’s intuitive interface. Share URLs effortlessly across platforms. Optimize your sharing strategy with QuickLink. Track clicks and manage your links seamlessly to enhance your online presence. Generate short, memorable links with ease using QuickLink’s intuitive interface. Share URLs effortlessly across platforms. Optimize your sharing strategy with QuickLink. Track clicks and manage your links seamlessly to enhance your online presence.";
+  "Generate short, memorable links with ease using QuickLink’s intuitive interface. Share URLs effortlessly across platforms. Optimize your sharing strategy with QuickLink. Track clicks and manage your links seamlessly to enhance your online presence. Generate short, memorable links with ease using QuickLink’s intuitive interface. Share URLs effortlessly across platforms.";
 
 const LandinPage = () => {
   return (
@@ -19,7 +19,7 @@ const LandinPage = () => {
             seconds. Simplify your sharing experience with QuickLink today.
           </p>
           <div className="flex items-center gap-3">
-            <button className="bg-btnColor hover:text-slate-300 w-40 text-white rounded-md  py-2">
+            <button className="bg-custom-gradient hover:text-slate-300 w-40 text-white rounded-md  py-2">
               Manage Links
             </button>
             <button className="border-btnColor border w-40 text-btnColor rounded-md  py-2 ">

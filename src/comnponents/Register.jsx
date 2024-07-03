@@ -94,7 +94,7 @@ const Register = () => {
         </div>
         <button
           onClickhandler={() => {}}
-          className="bg-customRed font-semibold text-white  bg-btnColor w-full py-2 hover:text-slate-400 transition-colors duration-100 rounded-sm my-3"
+          className="bg-customRed font-semibold text-white  bg-custom-gradient w-full py-2 hover:text-slate-400 transition-colors duration-100 rounded-sm my-3"
           type="text"
         >
           {loader ? "Loading..." : "Register"}

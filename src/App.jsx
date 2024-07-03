@@ -12,6 +12,7 @@ import SortenUrlLists from "./comnponents/Dashboard/SortenUrlLists";
 import Analytics from "./comnponents/Dashboard/Analytics";
 import LandinPage from "./comnponents/LandinPage";
 import { Toaster } from "react-hot-toast";
+import Footer from "./comnponents/Footer";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="analytics" element={<Analytics />} />
         </Route>
       </Routes>
+      <Footer />
     </Router>
   );
 };

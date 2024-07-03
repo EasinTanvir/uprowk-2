@@ -9,8 +9,8 @@ const Card = ({ title, desc }) => {
         y: 0,
       }}
       viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="shadow-md shadow-slate-400 flex flex-col px-4 py-8  gap-3 rounded-sm"
+      transition={{ duration: 0.5 }}
+      className="shadow-md shadow-slate-400 border flex flex-col px-4 py-8  gap-3 rounded-sm"
     >
       <h1 className="text-slate-900 text-2xl font-semibold ">{title}</h1>
       <p className="text-slate-700 text-sm"> {desc}</p>

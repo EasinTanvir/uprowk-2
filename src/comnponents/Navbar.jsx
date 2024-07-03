@@ -7,19 +7,21 @@ const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <div className="h-16 bg-navbarColor  flex items-center sticky top-0 ">
+    <div className="h-16 bg-custom-gradient  flex items-center sticky top-0 ">
       <div className="lg:px-14 sm:px-8 px-4 w-full flex justify-between">
         <Link to="/">
-          <h1 className="font-bold text-3xl text-btnColor italic">Bitly</h1>
+          <h1 className="font-bold text-3xl text-white italic">Bitly</h1>
         </Link>
         <ul
           className={`flex sm:gap-10 gap-4 sm:items-center text-slate-800 sm:static absolute left-0 top-16 sm:shadow-none shadow-md ${
             navbarOpen ? "h-48" : "h-0 overflow-hidden"
-          }  transition-all duration-100 sm:h-fit bg-navbarColor sm:bg-transparent sm:w-fit w-full sm:flex-row flex-col px-4 sm:px-0`}
+          }  transition-all duration-100 sm:h-fit sm:bg-none  bg-custom-gradient sm:w-fit w-full sm:flex-row flex-col px-4 sm:px-0`}
         >
           <li className="hover:text-btnColor font-[500]  transition-all duration-150">
             <Link
-              className={`${path === "/" ? "text-btnColor font-semibold" : ""}`}
+              className={`${
+                path === "/" ? "text-white font-semibold" : "text-gray-200"
+              }`}
               to="/"
             >
               Home
@@ -28,7 +30,7 @@ const Navbar = () => {
           <li className="hover:text-btnColor font-[500]  transition-all duration-150">
             <Link
               className={`${
-                path === "/about" ? "text-btnColor font-semibold" : ""
+                path === "/about" ? "text-white font-semibold" : "text-gray-200"
               }`}
               to="/about"
             >
@@ -38,7 +40,9 @@ const Navbar = () => {
           <li className="hover:text-btnColor font-[500]  transition-all duration-150">
             <Link
               className={`${
-                path === "/dashboard" ? "text-btnColor font-semibold" : ""
+                path === "/dashboard"
+                  ? "text-white font-semibold"
+                  : "text-gray-200"
               }`}
               to="/dashboard"
             >
@@ -55,7 +59,7 @@ const Navbar = () => {
           onClick={() => setNavbarOpen(!navbarOpen)}
           className="sm:hidden flex"
         >
-          <IoIosMenu className="text-slate-800 text-3xl" />
+          <IoIosMenu className="text-white text-3xl" />
         </button>
       </div>
     </div>

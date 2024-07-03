@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      backgroundImage: {
+        "custom-gradient": "linear-gradient(to right, #3b82f6, #9333ea)", // equivalent to from-blue-500 to-purple-600
+      },
       colors: {
         navbarColor: "#ffffff",
         btnColor: "#3364F7",
@@ -13,5 +16,12 @@ export default {
       },
     },
   },
+
+  variants: {
+    extend: {
+      backgroundImage: ["responsive"],
+    },
+  },
+
   plugins: [],
 };
