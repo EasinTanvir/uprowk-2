@@ -31,7 +31,6 @@ const Login = () => {
     setLoader(true);
     try {
       const { data: response } = await api.post("/api/auth/public/login", data);
-      console.log(response);
 
       //store the token to the localstorage from the responbse
       setToken(response.token);

@@ -3,17 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./comnponents/Navbar";
 import Login from "./comnponents/Login";
 import Register from "./comnponents/Register";
-import Dashboard from "./comnponents/Dashboard";
 import About from "./comnponents/About";
 import DashBoardLayout from "./comnponents/Dashboard/DashBoardLayout";
-
-import CreatSorten from "./comnponents/Dashboard/CreatSorten";
-import SortenUrlLists from "./comnponents/Dashboard/SortenUrlLists";
-import Analytics from "./comnponents/Dashboard/Analytics";
 import LandinPage from "./comnponents/LandinPage";
 import { Toaster } from "react-hot-toast";
 import Footer from "./comnponents/Footer";
 import PrivateRoutes from "./comnponents/PrivateRoute";
+import ErrorPage from "./comnponents/ErrorPage";
 
 const App = () => {
   return (
@@ -22,6 +18,7 @@ const App = () => {
       <Toaster position="bottom-center" reverseOrder={false} />
       <Routes>
         <Route path="/" element={<LandinPage />} />
+
         <Route path="/" element={<PrivateRoutes publicPage={false} />}>
           <Route path="/dashboard" element={<DashBoardLayout />} />
         </Route>
@@ -30,6 +27,13 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Route>
+        <Route path="/error" element={<ErrorPage />} />
+        <Route
+          path="*"
+          element={
+            <ErrorPage message=" We can't seem to find the page you're looking for" />
+          }
+        />
       </Routes>
       <Footer />
     </Router>

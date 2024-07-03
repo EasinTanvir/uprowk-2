@@ -33,7 +33,7 @@ const Register = () => {
       );
       console.log(response);
 
-      toast.success(response?.message);
+      toast.success(response);
       reset();
       navigate("/login");
     } catch (err) {
@@ -98,6 +98,7 @@ const Register = () => {
           />
         </div>
         <button
+          disabled={loader}
           className="bg-customRed font-semibold text-white  bg-custom-gradient w-full py-2 hover:text-slate-400 transition-colors duration-100 rounded-sm my-3"
           type="submit"
         >

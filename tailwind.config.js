@@ -5,6 +5,7 @@ export default {
     extend: {
       backgroundImage: {
         "custom-gradient": "linear-gradient(to right, #3b82f6, #9333ea)", // equivalent to from-blue-500 to-purple-600
+        "custom-gradient-2": "linear-gradient(to left, #3b82f6, #f43f5e)",
       },
       colors: {
         navbarColor: "#ffffff",

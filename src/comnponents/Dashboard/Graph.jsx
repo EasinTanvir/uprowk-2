@@ -7,118 +7,21 @@ import {
   LinearScale,
   Legend,
   Tooltip,
+  Filler,
 } from "chart.js";
 
-ChartJS.register(BarElement, Tooltip, CategoryScale, LinearScale, Legend);
+ChartJS.register(
+  BarElement,
+  Tooltip,
+  CategoryScale,
+  LinearScale,
+  Legend,
+  Filler
+);
 
-let shortens = [
-  {
-    id: 1,
-    date: "2024-06-01",
-    originalUrl: "https://example.com",
-    shortUrl: "abPZ7Q5d",
-    clickCount: 2,
-    user: {
-      id: 1,
-      email: "testuser@example.com",
-      username: "testuser",
-      password: "<hashed_password>",
-      role: "ROLE_USER",
-    },
-  },
-  {
-    id: 2,
-    date: "2024-06-02",
-    originalUrl: "https://example.org",
-    shortUrl: "cdEF8Gh1",
-    clickCount: 4,
-    user: {
-      id: 1,
-      email: "testuser@example.com",
-      username: "testuser",
-      password: "<hashed_password>",
-      role: "ROLE_USER",
-    },
-  },
-  {
-    id: 3,
-    date: "2024-06-03",
-    originalUrl: "https://example.org",
-    shortUrl: "cdEF8Gh1",
-    clickCount: 6,
-    user: {
-      id: 1,
-      email: "testuser@example.com",
-      username: "testuser",
-      password: "<hashed_password>",
-      role: "ROLE_USER",
-    },
-  },
-  {
-    id: 4,
-    date: "2024-06-04",
-    originalUrl: "https://example.org",
-    shortUrl: "cdEF8Gh1",
-    clickCount: 1,
-    user: {
-      id: 1,
-      email: "testuser@example.com",
-      username: "testuser",
-      password: "<hashed_password>",
-      role: "ROLE_USER",
-    },
-  },
-  {
-    id: 5,
-    date: "2024-06-05",
-    originalUrl: "https://example.org",
-    shortUrl: "cdEF8Gh1",
-    clickCount: 12,
-
-    user: {
-      id: 1,
-      email: "testuser@example.com",
-      username: "testuser",
-      password: "<hashed_password>",
-      role: "ROLE_USER",
-    },
-  },
-
-  {
-    id: 6,
-    date: "2024-06-06",
-    originalUrl: "https://example.org",
-    shortUrl: "cdEF8Gh1",
-    clickCount: 3,
-
-    user: {
-      id: 1,
-      email: "testuser@example.com",
-      username: "testuser",
-      password: "<hashed_password>",
-      role: "ROLE_USER",
-    },
-  },
-  {
-    id: 7,
-    date: "2024-06-07",
-    originalUrl: "https://example.org",
-    shortUrl: "cdEF8Gh1",
-    clickCount: 8,
-
-    user: {
-      id: 1,
-      email: "testuser@example.com",
-      username: "testuser",
-      password: "<hashed_password>",
-      role: "ROLE_USER",
-    },
-  },
-];
-
-const Graph = () => {
-  const labels = shortens?.map((item, i) => `${item.date}`);
-  const userPerDaya = shortens?.map((item) => item.clickCount);
+const Graph = ({ myUrlList }) => {
+  const labels = myUrlList?.map((item, i) => `${item.clickDate}`);
+  const userPerDaya = myUrlList?.map((item) => item.count);
 
   const data = {
     labels,
@@ -126,16 +29,20 @@ const Graph = () => {
       {
         label: "Total Click",
         data: userPerDaya,
-        backgroundColor: null,
+        backgroundColor: "#3b82f6",
         borderColor: "#1D2327",
         pointBorderColor: "red",
         fill: true,
         tension: 0.4,
+        barThickness: 20,
+        categoryPercentage: 1.5,
+        barPercentage: 1.5,
       },
     ],
   };
 
   const options = {
+    maintainAspectRatio: false,
     responsive: true,
     plugins: {
       legend: {
@@ -145,26 +52,39 @@ const Graph = () => {
     scales: {
       y: {
         beginAtZero: true,
+        ticks: {
+          stepSize: 1,
+          callback: function (value) {
+            if (Number.isInteger(value)) {
+              return value.toString();
+            }
+            return "";
+          },
+        },
         title: {
           display: true,
           text: "Number Of Click",
           font: {
-            family: "Arial", // Specify font family
-            size: 16, // Specify font size
-            weight: "bold", // Specify font weight
-            color: "#FF0000", // Specify text color
+            family: "Arial",
+            size: 16,
+            weight: "bold",
+            color: "#FF0000",
           },
         },
       },
       x: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1,
+        },
         title: {
           display: true,
           text: "Date",
           font: {
-            family: "Arial", // Specify font family
-            size: 16, // Specify font size
-            weight: "bold", // Specify font weight
-            color: "#FF0000", // Specify text color
+            family: "Arial",
+            size: 16,
+            weight: "bold",
+            color: "#FF0000",
           },
         },
       },
@@ -174,7 +94,7 @@ const Graph = () => {
   const chartRef = useRef(null);
 
   useEffect(() => {
-    const chart = chartRef.current;
+    const chart = chartRef?.current;
 
     if (chart) {
       const ctx = chart.ctx;
@@ -188,10 +108,7 @@ const Graph = () => {
   }, []);
 
   return (
-    <div>
-      {" "}
-      <Bar ref={chartRef} data={data} options={options}></Bar>
-    </div>
+    <Bar className=" w-full" ref={chartRef} data={data} options={options}></Bar>
   );
 };
 
