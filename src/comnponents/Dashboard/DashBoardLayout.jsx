@@ -203,7 +203,7 @@ const DashBoardLayout = () => {
             <div>
               {!isLoading && data.data.length === 0 ? (
                 <div className="flex justify-center pt-10">
-                  <p className="text-center  rounded-md py-2 px-4  bg-rose-700 text-white px-2">
+                  <p className="text-center  rounded-md py-2 px-4  bg-rose-700 text-white ">
                     You Didn't Create any ShortenURL Yet{" "}
                   </p>
                 </div>
