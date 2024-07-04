@@ -8,6 +8,9 @@ import api from "../../api/api";
 import { useStoreContext } from "../../contextApi/ContextApi";
 import { useNavigate } from "react-router-dom";
 import { Hourglass } from "react-loader-spinner";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaLink } from "react-icons/fa6";
+
 const SortenItem = ({ originalUrl, shortUrl, id }) => {
   const navigate = useNavigate();
   const { token } = useStoreContext();
@@ -61,8 +64,24 @@ const SortenItem = ({ originalUrl, shortUrl, id }) => {
     >
       <div className="sm:h-24 h-32 flex sm:flex-row flex-col  sm:items-center  sm:justify-between w-full sm:gap-0 gap-5 ">
         <div className="flex-1 overflow-x-auto overflow-y-hidden ">
-          <h3 className=" text-slate-900 font-[600] text-lg">{originalUrl}</h3>
-          <span className=" text-slate-700 font-[500] "> {shortUrl}</span>
+          <div className="flex items-center gap-1">
+            <h3 className=" text-slate-900 font-[600] text-lg">
+              {originalUrl}
+            </h3>
+            <span>
+              <FaLink />
+            </span>
+          </div>
+          <div className="text-slate-700 hover:text-slate-950 flex items-center gap-1">
+            <a
+              href={`${import.meta.env.VITE_REACT_FRONT_END_URL}/${shortUrl}`}
+              target="_blank"
+              className="  font-[500] "
+            >
+              {`${import.meta.env.VITE_REACT_FRONT_END_URL}/${shortUrl}`}
+            </a>
+            <FaExternalLinkAlt className="" />
+          </div>
         </div>
         <div className="flex  flex-1 h-full   sm:justify-end items-center gap-4">
           <CopyToClipboard

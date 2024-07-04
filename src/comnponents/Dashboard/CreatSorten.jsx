@@ -46,12 +46,12 @@ const CreatSorten = ({ setOpen, refetch }) => {
   };
 
   return (
-    <div className=" flex justify-center items-center bg-custom-gradient rounded-md">
+    <div className=" flex justify-center items-center bg-white rounded-md">
       <form
         onSubmit={handleSubmit(createShortUrlHandler)}
         className="sm:w-[450px] w-[300px] relative  shadow-custom py-10 sm:px-8 px-4 rounded-lg"
       >
-        <h1 className="font-montserrat text-center font-serif font-bold text-2xl text-white ">
+        <h1 className="font-montserrat text-center font-serif font-bold text-2xl text-slate-800 ">
           Create New ShortenUrl
         </h1>
         <hr className="mt-2 mb-5 text-slate-950" />
@@ -66,7 +66,6 @@ const CreatSorten = ({ setOpen, refetch }) => {
             message="*ShortenUrl is required"
             register={register}
             errors={errors}
-            className="text-white border-white"
           />
         </div>
         <button
@@ -79,9 +78,9 @@ const CreatSorten = ({ setOpen, refetch }) => {
         <button
           disabled={loading}
           onClick={() => setOpen(false)}
-          className=" absolute right-2 top-2"
+          className=" absolute right-2 top-2 bg-rose-700 rounded-full"
         >
-          <RxCross2 className="text-white text-2xl" />
+          <RxCross2 className="text-white text-3xl" />
         </button>
       </form>
     </div>
